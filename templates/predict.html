@@ -12,7 +12,10 @@
     <p> Predictive model results --- > </p>
 
     {% if prediction > 0%}
-	<h2>Spam</h2>
+	<h2 style="color:red;">Success</h2>
+	{% elif prediction == 0%}
+	<h2 style="color:blue;">Not Success</h2>
+	{% endif %}
 
 
     {% endblock %}
