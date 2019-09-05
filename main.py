@@ -35,7 +35,7 @@ def MLModel():
 
 
 
-    return render_template('results.html', prediction=test_proba)
+    return render_template('results.html', prediction="{0:.0f}%".format(test_proba * 100))
 
 
 if __name__ == '__main__':
