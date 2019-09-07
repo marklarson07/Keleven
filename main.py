@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import numpy as np
 import base64
+
 # ML Packages
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -18,9 +19,10 @@ def index():
 
 
 @app.route("/",methods=['POST'])
-def MLModel():
-    model = load('crunchbase_ml_test.joblib')
 
+def MLModel():
+
+    model = load('crunchbase_ml_test.joblib')
     if request.method == 'POST':
         number_of_articles_in = request.form['number_of_articles']
         number_of_articles = int(number_of_articles_in)
@@ -32,6 +34,7 @@ def MLModel():
         number_of_acquisitions = int(number_of_acquisitions_in)
         sample = np.array([(number_of_articles, number_of_founders, number_of_investors, number_of_acquisitions)])
         test_proba = model.predict_proba(sample)[0][1]
+
 
         # data manip
         data = pd.read_csv('MLTestAll.csv', header=0)
