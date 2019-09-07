@@ -1,0 +1,33 @@
+from joblib import load
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import mpld3
+plt.rc('font', size=14)
+
+#data manip
+data = pd.read_csv('MLTestAll.csv', header=0)
+data.drop(['Total Funding Amount'], axis=1, inplace=True)
+data.drop(['Number of Lead Investors'], axis=1, inplace=True)
+data.drop(['Number of Funding Rounds'], axis=1, inplace=True)
+data.fillna(0, inplace=True)
+X = data[data.columns[:-1]]
+y = data[data.columns[-1:]]
+
+#test sample
+number_of_articles = 50
+number_of_founders = 2
+number_of_investors = 5
+number_of_acquisitions = 3
+
+model = load('crunchbase_ml_test.joblib')
+sample = np.array([(number_of_articles, number_of_founders, number_of_investors, number_of_acquisitions)])
+test_proba = model.predict_proba(sample)
+
+plt.hist(data['Number of Founders'])
+buffer = BytesIO()
+plt.savefig(buffer, format='png')
+data = base64.b64encode(buffer.getbuffer()).decode('ascii')
+image = f"<img src='data:image/png;base64,{data}'/>"
