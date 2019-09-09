@@ -6,10 +6,6 @@ from io import BytesIO
 import numpy as np
 import base64
 
-# ML Packages
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-
 # THis is a comment from your mom
 # and this is a comment from your sister
 
