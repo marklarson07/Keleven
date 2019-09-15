@@ -1,3 +1,4 @@
+import matplotlib
 import pandas as pd
 from flask import Flask, render_template, request, url_for
 from joblib import load
@@ -5,20 +6,27 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import numpy as np
 import base64
+matplotlib.use('Agg')
 
 # ML Packages
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-# THis is a comment from your mom
 
 app = Flask(__name__)
 
-
+# direct pages
 @app.route("/")
 def index():
     return render_template("index.html")
 
+@app.route("/dry_powder.html")
+def dry_powder():
+    return render_template("dry_powder.html")
+
+@app.route("/company_profile.html")
+def company_profile():
+    return render_template("company_profile.html")
 
 @app.route("/",methods=['POST'])
 
@@ -83,6 +91,10 @@ def MLModel():
 
     return render_template('results.html', prediction="{0:.0f}%".format(test_proba * 100),figure=figure)
 
+# image upload
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080, debug=True)
+
+
