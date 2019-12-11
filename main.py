@@ -10,7 +10,7 @@ import base64
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-# THis is a comment from your mom
+
 
 app = Flask(__name__)
 
@@ -20,21 +20,30 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/dry_powder.html")
+def dry_powder():
+    return render_template("dry_powder.html")
+
+@app.route("/company_profile.html")
+def company_profile():
+    return render_template("company_profile.html")
+
+
 @app.route("/",methods=['POST'])
 
 def MLModel():
 
     model = load('crunchbase_ml_test.joblib')
     if request.method == 'POST':
-        number_of_articles_in = request.form['number_of_articles']
-        number_of_articles = int(number_of_articles_in)
+        categories_in = request.form['Categories']
+        categories = int(categories_in)
         number_of_founders_in = request.form['number_of_founders']
         number_of_founders = int(number_of_founders_in)
         number_of_investors_in = request.form['number_of_investors']
         number_of_investors = int(number_of_investors_in)
         number_of_acquisitions_in = request.form['number_of_acquisitions']
         number_of_acquisitions = int(number_of_acquisitions_in)
-        sample = np.array([(number_of_articles, number_of_founders, number_of_investors, number_of_acquisitions)])
+        sample = np.array([(categories, number_of_founders, number_of_investors, number_of_acquisitions)])
         test_proba = model.predict_proba(sample)[0][1]
 
 
@@ -47,12 +56,12 @@ def MLModel():
 
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(ncols=2, nrows=2)
 
-        # num articles
-        ax1.hist(data['Number of Articles'], rwidth=.75)
-        ax1.set_title('Number of Articles')
-        ax1.set_xlabel('Number of Articles')
+        # num Categories
+        ax1.hist(data['Categories'], rwidth=.75)
+        ax1.set_title('Categories')
+        ax1.set_xlabel('Categories')
         ax1.set_ylabel('Count')
-        ax1.axvline(x=number_of_articles, color='r', linestyle='solid', linewidth=2)
+        ax1.axvline(x=categories, color='r', linestyle='solid', linewidth=2)
 
         # num founders
         ax2.hist(data['Number of Founders'], rwidth=.75)
