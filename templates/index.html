@@ -46,7 +46,7 @@
 	  		<h1>Enter Company Metrics</h1>
 			<form method="POST">
 				<div class="form-group" style="align:center">
-				<table align="center" cellpadding="10">
+				<table align="center" cellpadding="1000">
 					<tr>
 						<td width="100"><br></td>
 					</tr>
@@ -54,14 +54,94 @@
 						<td width="100">Categories</td>
 						<td><select name="categories" id="categories" size="5" multiple>
 							<option value="Administrative Services">Administrative Services</option>
-							<option value="advertising">Advertising</option>
+							<option value="Advertising">Advertising</option>
 							<option value="Agriculture and Farming">Agriculture and Farming</option>
 							<option value="Apps">Apps</option>
 							<option value="Artificial Intelligence">Artificial Intelligence</option>
 						</select>
-
 						</td>
 					</tr>
+
+					<tr>
+						<td width="100">Degree Types</td>
+						<td><select name="degree_types" id="degree_types" size="5" multiple>
+							<option value="Associates">Associates</option>
+							<option value="Bachelors">Bachelors</option>
+							<option value="MBA">MBA</option>
+							<option value="Masters">Masters</option>
+							<option value="None">None</option>
+							<option value="Other">Other</option>
+							<option value="Phd">PhD</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100" padding="100">Degree Subjects</td>
+						<td><select name="degree_subjects" id="degree_subjects" size="5" multiple>
+							<option value="Applied Math">Applied Math</option>
+							<option value="Applied Math and Computer Science">Applied Math and Computer Science</option>
+							<option value="Business Management">Business Management</option>
+							<option value="Business Management & Marketing">Business Management & Marketing</option>
+							<option value="Computer & Information Science">Computer & Information Science</option>
+							<option value="Computer & Information Sciences">Computer & Information Sciences</option>
+							<option value="Masters of Business Administration">Masters of Business Administration</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100">Schools</td>
+						<td><select name="schools" id="schools" size="5" multiple>
+							<option value="Harvard University">Harvard University</option>
+							<option value="Stanford University">Stanford University</option>
+							<option value="Tel Aviv University">Tel Aviv University</option>
+							<option value="University of California, Berkeley">University of California, Berkeley</option>
+							<option value="University of Southern California">University of Southern California</option>
+							<option value="University of Washington">University of Washington</option>
+							<option value="Yale University">Yale University</option>
+						</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100">Job Titles</td>
+						<td><select name="job_titles" id="job_titles" size="5" multiple>
+							<option value="CEO">CEO</option>
+							<option value="CFO">CFO</option>
+							<option value="CMO">CMO</option>
+							<option value="CRO">CRO</option>
+							<option value="CTO">CTO</option>
+							<option value="Director">Director</option>
+							<option value="Founder">Founder</option>
+							<option value="Head">Head</option>
+							<option value="None">None</option>
+							<option value="VP">VP</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td width="100">Investors</td>
+						<td><select name="investors" id="investors" size="5" multiple>
+							<option value="Index Ventures">Index Ventures</option>
+							<option value="M13">M13</option>
+							<option value="Madrona Venture Group">Madrona Venture Group</option>
+							<option value="Menlo Ventures">Menlo Ventures</option>
+							<option value="Mucker Capital">Mucker Capital</option>
+							<option value="New Enterprise Associates">New Enterprise Associates</option>
+							<option value="SaaS Capital">SaaS Capital</option>
+							</select>
+						</td>
+						<br>
+					</tr>
+					<tr>
+						<td width="100">City</td>
+						<td><select name="city_names" id="city_names">
+							<option value="Salt Lake City">Salt Lake City</option>
+							<option value="New York">New York</option>
+							<option value="San Francisco">San Francisco</option>
+							<option value="Los Angeles">Los Angeles</option>
+							</select>
+						</td>
+					</tr>
+<!-- Old criteria
 					<tr>
 						<td width="100"><br></td>
 					</tr>
@@ -83,6 +163,7 @@
 						<td width="100">Age</td>
 						<td><input type="text" class="form-control" id="number_of_acquisitions" placeholder="Age of Company" name="number_of_acquisitions"></td>
 					</tr>
+ -->
 				</table>
 					<br>
 				</div>
